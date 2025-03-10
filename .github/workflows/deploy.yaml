@@ -17,11 +17,9 @@ jobs:
 
       - name: Install frontend dependencies
         run: |
-          cd frontend
           npm install
       - name: Build frontend
         run: |
-          cd frontend
           npm run build
       - name: Deploy to S3
         uses: jakejarvis/s3-sync-action@master
