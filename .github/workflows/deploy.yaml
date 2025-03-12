@@ -7,7 +7,7 @@ jobs:
   deploy-frontend:
     runs-on: ubuntu-latest
     env:
-      NEXT_PUBLIC_MEDUSA_BACKEND_URL: 'https://trendtrove-app-q4wqs.ondigitalocean.app  # Replace with your actual backend URL
+      NEXT_PUBLIC_MEDUSA_BACKEND_URL: 'https://trendtrove-app-q4wqs.ondigitalocean.app'  # Replace with your actual backend URL
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
