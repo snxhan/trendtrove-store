@@ -32,7 +32,7 @@ const nextConfig = withStoreConfig({
     ],
   },
   // Enable static export
-  output: 'export',  // Add this line
+  output: 'build',  // Add this line
 })
 
 console.log("next.config.js", JSON.stringify(module.exports, null, 2))
