@@ -35,7 +35,7 @@ jobs:
       - name: Package app
         run: |
           mkdir -p deploy
-          cp -r .next public package.json package-lock.json next.config.js deploy/
+          cp -r .next public package.json package-lock.json next.config.js store-config.js store.config.json deploy/ # Add store-config.js
           cd deploy
           zip -r ../app.zip .
 
