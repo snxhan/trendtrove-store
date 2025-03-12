@@ -1,36 +1,52 @@
-name: Deploy TrendTrove
+name: Deploy TrendTrove to Elastic Beanstalk
 on:
   push:
     branches: [ main ]
-    
+
 jobs:
   deploy-frontend:
     runs-on: ubuntu-latest
     env:
       NEXT_PUBLIC_MEDUSA_BACKEND_URL: 'https://trendtrove-app-q4wqs.ondigitalocean.app'
     steps:
+      # Step 1: Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v2
+
+      # Step 2: Set up Node.js
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
           node-version: '18'
+
+      # Step 3: Install dependencies
       - name: Install dependencies
         run: |
           npm install
+
+      # Step 4: Build the Next.js app
       - name: Build
         run: |
           npm run build
         env:
           NEXT_PUBLIC_MEDUSA_BACKEND_URL: 'https://trendtrove-app-q4wqs.ondigitalocean.app'
-      - name: List directories (for debugging)
-        run: ls -la
-      - name: Deploy to S3
-        uses: jakejarvis/s3-sync-action@master
+
+      # Step 5: Package the app into a ZIP file
+      - name: Package app
+        run: |
+          mkdir -p deploy
+          cp -r .next public package.json package-lock.json next.config.js deploy/
+          cd deploy
+          zip -r ../app.zip .
+
+      # Step 6: Deploy to Elastic Beanstalk
+      - name: Deploy to Elastic Beanstalk
+        uses: einaregilsson/beanstalk-deploy@v21
         with:
-          args: --delete
-        env:
-          AWS_S3_BUCKET: trendtrove-frontend
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          SOURCE_DIR: '.next'
+          aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          application_name: trendtrove-store  # Replace with your EB application name
+          environment_name: Trendtrove-store-env  # Replace with your EB environment name
+          version_label: ${{ github.sha }}  # Use the commit SHA as the version label
+          region: ap-southeast-1               # Replace with your AWS region
+          deployment_package: app.zip      # Path to the ZIP file
