@@ -27,8 +27,8 @@ const nextConfig = withStoreConfig({
       },
       {
         protocol: "https",
-        hostname: "medusa-tutorial-bucket.nyc3.digitaloceanspaces.com",
-      },
+        hostname: "medusa-bucket.sgp1.digitaloceanspaces.com",
+      }
     ],
   },
   // Enable static export
