@@ -50,4 +50,4 @@ jobs:
           version_label: ${{ github.sha }}  # Use the commit SHA as the version label
           region: ap-southeast-1               # Replace with your AWS region
           deployment_package: app.zip      # Path to the ZIP file
-          wait_for_health_check: false
+          wait_for_environment_recovery: false
