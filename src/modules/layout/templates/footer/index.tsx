@@ -104,11 +104,11 @@ export default async function Footer() {
               </div>
             )}
             <div className="flex flex-col gap-y-2">
-              <span className="txt-small-plus txt-ui-fg-base">Medusa</span>
+              <span className="txt-small-plus txt-ui-fg-base">TrendTrove</span>
               <ul className="grid grid-cols-1 gap-y-2 text-ui-fg-subtle txt-small">
                 <li>
                   <a
-                    href="https://github.com/medusajs"
+                    href="https://github.com/snxhan/trendtrove-store"
                     target="_blank"
                     rel="noreferrer"
                     className="hover:text-ui-fg-base"
@@ -118,7 +118,7 @@ export default async function Footer() {
                 </li>
                 <li>
                   <a
-                    href="https://docs.medusajs.com"
+                    href="https://google.com"
                     target="_blank"
                     rel="noreferrer"
                     className="hover:text-ui-fg-base"
@@ -128,7 +128,7 @@ export default async function Footer() {
                 </li>
                 <li>
                   <a
-                    href="https://github.com/medusajs/nextjs-starter-medusa"
+                    href="https://google.com"
                     target="_blank"
                     rel="noreferrer"
                     className="hover:text-ui-fg-base"
