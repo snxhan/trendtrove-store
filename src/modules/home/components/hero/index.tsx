@@ -9,7 +9,7 @@ const Hero = () => {
           level="h1"
           className="text-4xl md:text-6xl font-bold"
         >
-          TrendTrove
+          Group 18 NUS Project Store
         </Heading>
         <Text className="text-lg md:text-2xl font-light">
           Discover the latest styles and trends in one place.

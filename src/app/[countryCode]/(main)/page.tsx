@@ -8,7 +8,7 @@ import { ProductCollectionWithPreviews } from "types/global"
 import { cache } from "react"
 
 export const metadata: Metadata = {
-  title: "TrendTxxrove Store",
+  title: "TrendTrove Store",
   description:
     "A Discover the latest styles and trends in one place.",
 }
